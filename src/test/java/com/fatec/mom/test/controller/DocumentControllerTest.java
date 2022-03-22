@@ -39,39 +39,39 @@ class DocumentControllerTest extends AbstractControllerTest {
     @Autowired
     private DocumentService documentService;
 
-//    @Test
-//    @Sql(value = "/com/fatec/mom/test/sql/insert-three-documents-and-twenty-five-blocks.sql",
-//        config = @SqlConfig(transactionManager = "dataSourceTransactionManager"))
-//    void givenARequestToFindByNameAndPartNumberShouldReturn200AndTheListOfDocuments() throws Exception {
-//        var result = getMockMvc().perform(get("/document/find/all/by?document_name=ABC&part_number=1234"))
-//                .andExpect(status().isOk())
-//                .andReturn();
-//        var json = getJsonArray(result);
-//
-//        JSONAssert.assertEquals(
-//                jsonAsString("expected-doc-search-by-request-as-list.json"),
-//                getResultAsJson(result),
-//                true);
-//
-//        assertThat(json.length(), equalTo(3));
-//    }
-//
-//    @Test
-//    @Sql(value = "/com/fatec/mom/test/sql/insert-four-documents.sql",
-//            config = @SqlConfig(transactionManager = "dataSourceTransactionManager"))
-//    void givenARequestToFindAllDocsShouldReturn200AndAllTheDocuments() throws Exception {
-//        var result = getMockMvc().perform(get("/document/find/all"))
-//                .andExpect(status().isOk())
-//                .andReturn();
-//        var json = getJsonArray(result);
-//
-//        JSONAssert.assertEquals(
-//                jsonAsString("expected-four-documents-as-list.json"),
-//                getResultAsJson(result),
-//                true);
-//
-//        assertThat(json.length(), equalTo(4));
-//    }
+    @Test
+    @Sql(value = "/com/fatec/mom/test/sql/insert-three-documents-and-twenty-five-blocks.sql",
+        config = @SqlConfig(transactionManager = "dataSourceTransactionManager"))
+    void givenARequestToFindByNameAndPartNumberShouldReturn200AndTheListOfDocuments() throws Exception {
+        var result = getMockMvc().perform(get("/document/find/all/by?document_name=ABC&part_number=1234"))
+                .andExpect(status().isOk())
+                .andReturn();
+        var json = getJsonArray(result);
+
+        JSONAssert.assertEquals(
+                jsonAsString("expected-doc-search-by-request-as-list.json"),
+                getResultAsJson(result),
+                true);
+
+        assertThat(json.length(), equalTo(3));
+    }
+
+    @Test
+    @Sql(value = "/com/fatec/mom/test/sql/insert-four-documents.sql",
+            config = @SqlConfig(transactionManager = "dataSourceTransactionManager"))
+    void givenARequestToFindAllDocsShouldReturn200AndAllTheDocuments() throws Exception {
+        var result = getMockMvc().perform(get("/document/find/all"))
+                .andExpect(status().isOk())
+                .andReturn();
+        var json = getJsonArray(result);
+
+        JSONAssert.assertEquals(
+                jsonAsString("expected-four-documents-as-list.json"),
+                getResultAsJson(result),
+                true);
+
+        assertThat(json.length(), equalTo(4));
+    }
 //
 //    @Test
 //    @Sql(value = "/com/fatec/mom/test/sql/insert-four-documents.sql",
